@@ -1,0 +1,29 @@
+.navbar{
+    box-shadow: 0 2px 12px 0px #00000087;
+}
+.nav-logo{
+    font-family: 'Sriracha', cursive;
+    font-size: x-large;
+    font-weight: 700;
+    margin-left: 20px;    
+}
+
+.nav-info {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.nav-logo img {
+    margin-right: 20px;
+}
+
+.nav-controls{
+    margin-right: 20px;
+}
+
+.drop-item:hover {
+    background-color: whitesmoke;
+    color: #0a0a0a;
+    cursor: pointer;
+}

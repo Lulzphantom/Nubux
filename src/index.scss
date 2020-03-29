@@ -1,0 +1,15 @@
+@import "~bulma/bulma";
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+html{
+  overflow-y : auto;
+}
+body {
+  background: hsl(0, 0%, 96%);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;  
+}

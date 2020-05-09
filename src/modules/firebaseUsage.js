@@ -3,12 +3,32 @@ import firebase from '../config/firebase';
 const db = firebase.firestore();
 
 // Create new user with firebase auth
-const createUser = (displayName, email, password) => {
+const createUser = (name, email, password) => {
 
 }
 
 // signin function with firebase auth
 const signInUser = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
+
+const getUsersInfo = async () => {
+    return await db.collection('users').get()
+        .then((result) => result.docs.map((doc) => doc.data()))
+        .catch((err) => {            
+            console.error(err.message);
+            return null;
+        });
+}
+
+// Get user information with firebase firestore
+const getCurrentUserInfo = async () => {
+    const userId = firebase.auth().currentUser.uid;
+    return await db.collection('users').doc(userId).get()
+        .then((result) => result.data())
+        .catch((err) => {            
+            console.error(err.message);
+            return null;
+        });
+}
 
 // Get user cards by type with firebase firestore
 const getUserCardsByType = async (cardType) => {
@@ -39,4 +59,4 @@ const deleteCard = async (cardType, cardId) => {
         });
 }
 
-export { createUser, signInUser, getUserCardsByType, deleteCard };
+export { createUser, signInUser, getCurrentUserInfo, getUsersInfo, getUserCardsByType, deleteCard };
